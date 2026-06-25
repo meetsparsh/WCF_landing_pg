@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>We Care Finserv – Financial Solutions Tailored For All Your Needs</title>
+<style>
+/* ================= PREMIUM TRANSITIONS SYSTEM ================= */
+
+/* 1. Base Document Settings */
+html {
+    scroll-behavior: smooth; /* Native smooth gliding when nav links are clicked */
+}
+
+/* 2. Initial Page Load Entry Animation */
+body {
+    opacity: 0;
+    animation: institutionalEntrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes institutionalEntrance {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 3. Scroll-Driven Section Reveal States */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity; /* Optimizes hardware acceleration for smooth performance */
+}
+
+/* Activated via JavaScript when scrolled into view */
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Staggered grid delay helpers so cards appear one after another sequentially */
+.grid-3 > .card:nth-child(1) { transition-delay: 0.1s; }
+.grid-3 > .card:nth-child(2) { transition-delay: 0.2s; }
+.grid-3 > .card:nth-child(3) { transition-delay: 0.3s; }
+.grid-3 > .card:nth-child(4) { transition-delay: 0.1s; }
+.grid-3 > .card:nth-child(5) { transition-delay: 0.2s; }
+.grid-3 > .card:nth-child(6) { transition-delay: 0.3s; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+    --red: #C8102E;
+    --blue: #004F95;
+    --navy: #1A2530;
+    --white: #FFFFFF;
+    --light-bg: #F8FAFC;
+    --border: #E2E8F0;
+    --text-body: #334155;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: var(--white);
+    color: var(--text-body);
+    line-height: 1.5;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--white);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+    z-index: 1000;
+}
+.nav-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 14px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.logo-icon {
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: 42px;
+}
+.logo-text {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+.logo-red { color: var(--red); }
+.logo-blue { color: var(--blue); }
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+}
+.nav-links a {
+    text-decoration: none;
+    color: var(--navy);
+    font-weight: 600;
+    font-size: 15px;
+    transition: color .2s ease;
+}
+.nav-links a:hover {
+    color: var(--red);
+}
+.nav-btn {
+    background: var(--red);
+    color: var(--white);
+    padding: 10px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: background .2s ease;
+}
+.nav-btn:hover {
+    background: #A40D24;
+}
+
+/* ================= HERO SECTION ================= */
+.hero {
+    min-height: 85vh;
+    background: linear-gradient(135deg, #003366 0%, var(--blue) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 140px 24px 80px 24px;
+    color: var(--white);
+}
+.hero-brand {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px;
+}
+.hero h1 {
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 700;
+    line-height: 1.2;
+    max-width: 850px;
+    margin-bottom: 24px;
+}
+.hero p {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 600px;
+    margin-bottom: 40px;
+}
+.hero-btn {
+    display: inline-block;
+    background: var(--red);
+    color: var(--white);
+    text-decoration: none;
+    padding: 14px 36px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    transition: background .2s ease, transform .2s ease;
+}
+.hero-btn:hover {
+    background: #A40D24;
+    transform: translateY(-2px);
+}
+
+/* ================= STATS BANNER ================= */
+.stats-banner {
+    background: var(--white);
+    padding: 40px 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    border-bottom: 1px solid var(--border);
+}
+.stats-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    text-align: center;
+}
+.stat-item h3 {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--blue);
+    margin-bottom: 6px;
+}
+.stat-item p {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #64748B;
+}
+
+/* ================= GENERAL SECTIONS ================= */
+.section {
+    padding: 90px 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.section-full {
+    padding: 90px 24px;
+    background: var(--light-bg);
+}
+.section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+.section-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 12px;
+}
+.section-title {
+    font-size: clamp(26px, 4vw, 36px);
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 16px;
+}
+.section-sub {
+    font-size: 16px;
+    color: #64748B;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ================= GRID DESIGNS ================= */
+/* ================= GRID DESIGNS ================= */
+.grid-3, .grid-2 {
+    display: grid;
+    gap: 24px;
+}
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+
+.card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 32px 28px;
+    position: relative;
+    overflow: hidden;
+    /* Added background-color and box-shadow explicitly to the transition list */
+    transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 🟦 Top Blue Decorative Accent Line */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px; /* Increased to 4px for better visibility against red */
+    background: var(--blue);
+    transform: scaleX(0);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 10; /* Keeps it strictly above the red background */
+}
+
+/* ================= HOVER METAMORPHOSIS ================= */
+
+/* 1. Card Container Shift (Background turns Red) */
+.card:hover {
+    background-color: var(--red) !important;
+    transform: translateY(-6px);
+    box-shadow: 0 15px 30px rgba(200, 16, 46, 0.18); /* Soft ambient crimson shadow */
+}
+
+/* 2. Slide the Top Accent Line outward on hover */
+.card:hover::before {
+    transform: scaleX(1);
+}
+
+/* 3. Text and Element Color Inversions (Smooth 0.3s fading) */
+.card-icon {
+    font-size: 32px;
+    margin-bottom: 16px;
+    color: var(--blue);
+    transition: color 0.3s ease;
+}
+.card:hover .card-icon {
+    color: var(--white) !important;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 12px;
+    transition: color 0.3s ease;
+}
+.card:hover .card-title {
+    color: var(--white) !important;
+}
+
+.card-text {
+    font-size: 14px;
+    color: #64748B;
+    line-height: 1.6;
+    transition: color 0.3s ease;
+}
+.card:hover .card-text {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* 4. Adaptive Badge Handling to maintain perfect contrast over the Red background */
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.badge-loan { background: #EFF6FF; color: var(--blue); }
+.badge-ins { background: #FEF2F2; color: var(--red); }
+
+/* Inverts all badge varieties to look clean and legible on red */
+.card:hover .badge {
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: var(--white) !important;
+}
+
+/* ================= FORM SECTION ================= */
+.form-wrap {
+    background: linear-gradient(135deg, var(--blue) 0%, #002244 100%);
+    padding: 90px 24px;
+}
+.form-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: center;
+}
+.form-info h2 {
+    color: var(--white);
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.form-info p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+    margin-bottom: 24px;
+}
+.form-card {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 16px;
+}
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.field.full-width {
+    grid-column: span 2;
+}
+.field label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+}
+.field input, .field select, .field textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    font-size: 14px;
+    color: var(--navy);
+    background: #F8FAFC;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+}
+.field input:focus, .field select:focus, .field textarea:focus {
+    border-color: var(--red);
+    background: var(--white);
+}
+.checkbox-field {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 8px;
+}
+.checkbox-field input {
+    margin-top: 4px;
+    width: auto;
+}
+.checkbox-field label {
+    font-size: 12px;
+    color: #64748B;
+    line-height: 1.4;
+}
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: var(--red);
+    color: var(--white);
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    margin-top: 12px;
+}
+.submit-btn:hover {
+    background: #A40D24;
+    transform: translateY(-1px);
+}
+.success-msg {
+    display: none;
+    text-align: center;
+    padding: 40px 0;
+}
+.success-msg .tick { font-size: 54px; margin-bottom: 16px; }
+
+/* ================= CONTACT & FOOTER ================= */
+.contact-section {
+    background: #0F172A;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 80px 24px;
+    border-bottom: 1px solid #1E293B;
+}
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 48px;
+}
+.contact-brand h3 {
+    color: var(--white);
+    font-size: 22px;
+    margin-bottom: 16px;
+}
+.contact-brand p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+.contact-box h4 {
+    color: var(--white);
+    font-size: 16px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+.contact-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+.contact-item a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+}
+.contact-item a:hover { color: var(--white); }
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.social-link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.social-link:hover { color: var(--white); }
+
+.footer {
+    background: #0F172A;
+    color: #64748B;
+    text-align: center;
+    padding: 24px;
+    font-size: 13px;
+}
+
+/* Floating Actions */
+.float-btns {
+    position: fixed;
+    right: 20px;
+    bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 999;
+}
+.float-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 20px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+    transition: transform 0.2s;
+}
+.float-btn:hover { transform: scale(1.1); }
+.float-btn.wa { background: #25D366; }
+.float-btn.call { background: var(--blue); }
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 960px) {
+    .grid-3 { grid-template-columns: repeat(2, 1fr); }
+    .form-container { grid-template-columns: 1fr; gap: 40px; }
+    .contact-container { grid-template-columns: 1fr; gap: 32px; }
+}
+@media (max-width: 640px) {
+    .grid-3, .grid-2, .form-grid, .stats-container { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .form-card { padding: 24px; }
+    .field.full-width { grid-column: span 1; }
+}
+
+/* INTERSECTION OBSERVER ANIMATION STRUCTURE */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ================= TESTIMONIAL TICKER DESIGN ================= */
+.ticker-section {
+    background: var(--light-bg);
+    padding: 60px 0;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+}
+
+.ticker-title {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--blue);
+    margin-bottom: 30px;
+}
+
+.ticker-wrap {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+}
+
+/* Elegant edge fading mask to give a premium layered feel */
+.ticker-wrap::before,
+.ticker-wrap::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 150px;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+}
+.ticker-wrap::before {
+    left: 0;
+    background: linear-gradient(to right, var(--light-bg), transparent);
+}
+.ticker-wrap::after {
+    right: 0;
+    background: linear-gradient(to left, var(--light-bg), transparent);
+}
+
+/* The actual running train line block */
+.ticker-track {
+    display: flex;
+    width: max-content;
+    animation: linearMarquee 35s linear infinite;
+}
+
+/* Pause the scrolling motion when a user moves their mouse over a review to read it */
+.ticker-track:hover {
+    animation-play-state: paused;
+}
+
+/* High Decency Institutional Review Cards */
+.ticker-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px 28px;
+    width: 340px;
+    margin: 0 15px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    transition: border-color 0.3s ease;
+}
+
+.ticker-card:hover {
+    border-color: var(--blue);
+}
+
+.ticker-stars {
+    color: #F59E0B; /* Premium Amber Gold Star Hex */
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.ticker-quote {
+    font-size: 14px;
+    color: var(--navy);
+    line-height: 1.6;
+    font-style: italic;
+    margin-bottom: 14px;
+}
+
+.ticker-author {
+    font-size: 12px;
+    font-weight: 700;
+    color: #64748B;
+}
+
+/* Infinite loop keyframe logic */
+@keyframes linearMarquee {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-50%, 0, 0); /* Perfectly snaps back on duplicate boundaries */
+    }
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+        <img src="imaged/logo.jpeg" alt="We Care Finserv Logo" style="height: 42px; width: auto; object-fit: contain; display: block;">
+        
+        <div class="logo-text">
+            <span class="logo-red">Care</span> <span class="logo-blue">Finserv</span>
+        </div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#solutions">Solutions</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#apply">Enquire Now</a></li>
+        </ul>
+        <a href="#apply" class="nav-btn">Get Started</a>
+    </div>
+</nav>
+
+<div class="float-btns">
+    <a class="float-btn wa" href="https://wa.me/919373917594" target="_blank">💬</a>
+    <a class="float-btn call" href="tel:+919373917594">📞</a>
+</div>
+
+<section class="hero">
+    <div class="hero-brand">We Care Finserv Limited</div>
+    <h1>Financial Solutions Tailored For All Your Needs.</h1>
+    <p>Empowering individuals and corporate ecosystems through reliable lending instruments and custom risk-mitigation portfolios.</p>
+    <button class="hero-btn" onclick="document.getElementById('apply').scrollIntoView({behavior:'smooth'})">Let's Find What You Need</button>
+</section>
+
+<section class="stats-banner">
+    <div class="stats-container">
+        <div class="stat-item">
+            <h3>1,150+</h3>
+            <p>Employees Nationally</p>
+        </div>
+        <div class="stat-item">
+            <h3>PAN India</h3>
+            <p>Branch Network</p>
+        </div>
+        <div class="stat-item">
+            <h3>₹5.5 Cr.</h3>
+            <p>Assets Under Management</p>
+        </div>
+        <div class="stat-item">
+            <h3>₹1.78 Cr.</h3>
+            <p>Consolidated Lending Book</p>
+        </div>
+    </div>
+</section>
+
+<section class="ticker-section">
+    <div class="ticker-title">Trusted By Thousands of Active Households & Businesses</div>
+    <div class="ticker-wrap">
+        <div class="ticker-track">
+            
+            <div class="ticker-card">
+                <div class="ticker-stars">★★★★★</div>
+                <p class="ticker-quote">"Seamless home loan approval within 3 days. Extremely transparent processing structure."</p>
+                <div class="ticker-author">— Rajesh K., Pune</div>
+            </div>
+
+            <div class="ticker-card">
+                <div class="ticker-stars">★★★★★</div>
+                <p class="ticker-quote">"We Care Finserv helped our manufacturing unit secure working capital when banks delayed."</p>
+                <div class="ticker-author">— Alpha Industries, Mumbai</div>
+            </div>
+
+            <div class="ticker-card">
+                <div class="ticker-stars">★★★★★</div>
+                <p class="ticker-quote">"Their term life and health insurance portfolios are perfectly tailored. Excellent clarity."</p>
+                <div class="ticker-author">— Dr. Amit Verma, Delhi</div>
+            </div>
+
+            <div class="ticker-card">
+                <div class="ticker-stars">★★★★★</div>
+                <p class="ticker-quote">"Unbelievable transparency. No hidden ledger fees or processing surprises at completion."</p>
+                <div class="ticker-author">— Priya Sharma, Bangalore</div>
+            </div>
+
+            <div class="ticker-card">
+                <div class="ticker-stars">★★★★★</div>
+                <p class="ticker-quote">"Seamless home loan approval within 3 days. Extremely transparent processing structure."</p>
+                <div class="ticker-author">— Rajesh K., Pune</div>
+            </div>
+            <div class="ticker-card">
+                <div class="ticker-stars">★★★★★</div>
+                <p class="ticker-quote">"We Care Finserv helped our manufacturing unit secure working capital when banks delayed."</p>
+                <div class="ticker-author">— Alpha Industries, Mumbai</div>
+            </div>
+            <div class="ticker-card">
+                <div class="ticker-stars">★★★★★</div>
+                <p class="ticker-quote">"Their term life and health insurance portfolios are perfectly tailored. Excellent clarity."</p>
+                <div class="ticker-author">— Dr. Amit Verma, Delhi</div>
+            </div>
+            <div class="ticker-card">
+                <div class="ticker-stars">★★★★★</div>
+                <p class="ticker-quote">"Unbelievable transparency. No hidden ledger fees or processing surprises at completion."</p>
+                <div class="ticker-author">— Priya Sharma, Bangalore</div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div class="section-full" id="solutions">
+    <div class="section-inner">
+        <div class="section-header reveal">
+            <div class="section-label">Solutions Portfolio</div>
+            <h2 class="section-title">Our Diverse Product Infrastructure</h2>
+            <p class="section-sub">Driven by corporate integrity, we handle your long-term wealth milestones and coverage prerequisites.</p>
+        </div>
+
+        <div class="grid-3">
+            <div class="card reveal">
+                <span class="badge badge-loan">Lending Solution</span>
+                <div class="card-icon">🏠</div>
+                <h3 class="card-title">Home Loan Architect</h3>
+                <p class="card-text">Opening doors to your core real-estate holding. Up to ₹5 Crores valuation with structurally optimal interest windows and long tenures up to 30 years.</p>
+            </div>
+            <div class="card reveal">
+                <span class="badge badge-loan">Commercial Credit</span>
+                <div class="card-icon">💼</div>
+                <h3 class="card-title">Business Capital &amp; Expansion</h3>
+                <p class="card-text">Tailor-made lines of credit for active capacity scaling, fixed-asset procurement, structural R&amp;D allocations, or key operational working capital management.</p>
+            </div>
+            <div class="card reveal">
+                <span class="badge badge-loan">Lending Solution</span>
+                <div class="card-icon">🏢</div>
+                <h3 class="card-title">Loan Against Property</h3>
+                <p class="card-text">Unlock institutional Liquidity frameworks against commercial or premium residential real estate collateral fields at low operational interest models.</p>
+            </div>
+
+            <div class="card reveal">
+                <span class="badge badge-ins">Risk Mitigation</span>
+                <div class="card-icon">🛡️</div>
+                <h3 class="card-title">Life &amp; Term Provisioning</h3>
+                <p class="card-text">Bring absolute security to life's unpredictabilities. High coverage term strategies structured to protect asset-continuity for dependent family profiles.</p>
+            </div>
+            <div class="card reveal">
+                <span class="badge badge-ins">Asset Protection</span>
+                <div class="card-icon">🚗</div>
+                <h3 class="card-title">Health &amp; Motor Insurance</h3>
+                <p class="card-text">Comprehensive medical network security combined with comprehensive automotive protection strategies mitigating unforeseen fiscal operational leaks.</p>
+            </div>
+            <div class="card reveal">
+                <span class="badge badge-ins">Investment Domain</span>
+                <div class="card-icon">📈</div>
+                <h3 class="card-title">ULIP &amp; Savings Systems</h3>
+                <p class="card-text">Dual-benefit asset creation vehicles uniting equity-linked market growth setups with standard underlying security baselines.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section" id="about">
+    <div class="section-header reveal">
+        <div class="section-label">Institutional Governance</div>
+        <h2 class="section-title">Our Commitment to Care, Support &amp; Empower</h2>
+        <p class="section-sub">We focus on creating sustainable financial acceleration matrices across your entire financial life cycle.</p>
+    </div>
+
+    <div class="grid-3">
+        <div class="card reveal">
+            <div class="card-icon">🤝</div>
+            <h3 class="card-title">20+ Multi-Bank Ecosystem</h3>
+            <p class="card-text">We verify capabilities across 20+ top-tier banking systems and NBFCs, matching individual risk matrices to optimal options.</p>
+        </div>
+        <div class="card reveal">
+            <div class="card-icon">⚡</div>
+            <h3 class="card-title">72-Hour Rapid Processing</h3>
+            <p class="card-text">Fast document verification and loan assignment pipelines dispatch requested capital lines inside a verified 72-hour operating phase.</p>
+        </div>
+        <div class="card reveal">
+            <div class="card-icon">🔍</div>
+            <h3 class="card-title">Zero Hidden Conditions</h3>
+            <p class="card-text">Complete transactional transparency down to the base ledger. No backend handling charges or surprising fee assessments.</p>
+        </div>
+    </div>
+</div>
+
+<div class="form-wrap" id="apply">
+    <div class="form-container">
+        <div class="form-info reveal">
+            <h2>Let's Find What You Need</h2>
+            <p>Provide your processing profile configuration parameters. An enterprise consultant will be assigned to review your parameters inside 24 operating hours.</p>
+            <p style="font-size: 14px; color: rgba(255,255,255,0.6); margin-top: 16px;">💡 Proudly highlighting a verified 98.12% Claim Settlement Ratio across our institutional partnerships for FY 2022-23.</p>
+        </div>
+
+        <div class="form-card reveal">
+            <div id="formBody">
+                <div class="form-grid">
+                    <div class="field">
+                        <label>Full Name *</label>
+                        <input type="text" id="f-name" placeholder="Your full name">
+                    </div>
+                    <div class="field">
+                        <label>Mobile Number *</label>
+                        <input type="tel" id="f-mobile" placeholder="10-digit number" maxlength="10">
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="field">
+                        <label>Email ID *</label>
+                        <input type="email" id="f-email" placeholder="you@email.com">
+                    </div>
+                    <div class="field">
+                        <label>City</label>
+                        <input type="text" id="f-city" placeholder="City">
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="field">
+                        <label>Loan Type Preference *</label>
+                        <select id="f-loan-type">
+                            <option value="">Select loan type</option>
+                            <option value="Home Loan">Home Loan</option>
+                            <option value="Business Loan">Business Loan</option>
+                            <option value="Personal Loan">Personal Loan</option>
+                            <option value="Loan Against Property">Loan Against Property</option>
+                            <option value="Balance Transfer">Balance Transfer</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>Employment Status *</label>
+                        <select id="f-employment">
+                            <option value="">Select status</option>
+                            <option value="Salaried">Salaried</option>
+                            <option value="Self-Employed">Self-Employed</option>
+                            <option value="Business Owner">Business Owner</option>
+                            <option value="Professional">Professional</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="field">
+                        <label>House Ownership *</label>
+                        <select id="f-house">
+                            <option value="">Select option</option>
+                            <option value="Own House">Own House</option>
+                            <option value="Rental House">Rental House</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>CIBIL Score Category *</label>
+                        <select id="f-cibil">
+                            <option value="">Select Credit Range</option>
+                            <option value="< 500">&lt; 500</option>
+                            <option value="500 - 600">500 - 600</option>
+                            <option value="600 - 700">600 - 700</option>
+                            <option value="700 - 800">700 - 800</option>
+                            <option value="800+">800+</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="field">
+                        <label>Monthly Income (₹)*</label>
+                        <input type="number" id="f-income" placeholder="e.g. 50000">
+                    </div>
+                    <div class="field">
+                        <label>Loan Amount Required (₹)*</label>
+                        <input type="number" id="f-loan-amount" placeholder="e.g. 2500000">
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="field">
+                        <label>PAN Number*</label>
+                        <input type="text" id="f-pan" placeholder="ABCDE1234F" maxlength="10" style="text-transform: uppercase;">
+                    </div>
+                    <div class="field">
+                        <label>Aadhaar Number*</label>
+                        <input type="text" id="f-aadhaar" placeholder="XXXX XXXX XXXX" maxlength="14">
+                    </div>
+                </div>
+
+                <div class="field full-width" style="margin-bottom: 16px;">
+                    <label>Current Residential Address*</label>
+                    <textarea id="f-address" placeholder="Flat, building, street, city, pincode" style="resize: vertical; min-height: 70px;"></textarea>
+                </div>
+                
+                <div class="checkbox-field" style="margin-bottom: 12px;">
+                    <input type="checkbox" id="f-terms" checked>
+                    <label for="f-terms">I authorize We Care Finserv to securely process my eligibility parameters. All identity information provided is subject to end-to-end encryption protocols.</label>
+                </div>
+
+                <p style="color: var(--red); font-size: 13px; margin-top: 10px; display: none;" id="err-msg"></p>
+                <button class="submit-btn" id="submitBtn" onclick="submitLead()">Submit Application</button>
+            </div>
+
+            <div class="success-msg" id="successMsg">
+                <div class="tick">✅</div>
+                <h3 style="color: var(--navy); margin-bottom: 8px;">Application Submitted!</h3>
+                <p style="color: var(--text-body); font-size: 14px;">Our team will call you within 24 hours.<br>Your Lead ID: <span id="lead-id" style="font-weight:700; color:var(--blue);"></span></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="contact-section">
+    <div class="contact-container">
+        <div class="contact-brand">
+            <h3>We Care Finserv</h3>
+            <p>We Care Finserv Limited is a systemically important non-deposit taking financial intermediary focused on creating sustainable wealth growth frameworks across diversified individual and enterprise assets.</p>
+        </div>
+        <div class="contact-box">
+            <h4>Corporate Infrastructure</h4>
+            <div class="contact-item">
+                <span>📍</span>
+                <span>114, Ashoka Mall, Bund Garden, Pune, Maharashtra - 411001</span>
+            </div>
+            <div class="contact-item">
+                <span>📞</span>
+                <a href="tel:+919373917594">+91 93739 17594</a>
+            </div>
+            <div class="contact-item">
+                <span>✉️</span>
+                <a href="mailto:info@wecarefinserv.com">info@wecarefinserv.com</a>
+            </div>
+        </div>
+        <div class="contact-box">
+            <h4>Corporate Ecosystem</h4>
+            <div class="social-links">
+                <a class="social-link" href="https://www.linkedin.com/company/we-care-finserv/" target="_blank">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="color: #0A66C2; flex-shrink:0;">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                    <span>LinkedIn Portfolio</span>
+                </a>
+
+                <a class="social-link" href="https://www.instagram.com/wecarefinserv" target="_blank">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="color: #E4405F; flex-shrink:0;">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                    <span>Instagram Channel</span>
+                </a>
+
+                <a class="social-link" href="https://wecarefinserv.com" target="_blank">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--blue); flex-shrink: 0;">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                    <span>Official Corporate Web Portal</span>
+                </a>
+                </a>
+            </div>
+        </div>
+    </div>
+
+<div class="footer">
+    &copy; 2026 We Care Finserv Limited. All rights reserved. 
+</div>
+
+<script>
+async function submitLead() {
+    const errEl = document.getElementById('err-msg');
+    errEl.style.display = 'none';
+
+    const name = document.getElementById('f-name').value.trim();
+    const mobile = document.getElementById('f-mobile').value.trim();
+    const product = document.getElementById('f-loan-type').value;
+    const city = document.getElementById('f-city').value.trim();
+    const terms = document.getElementById('f-terms').checked;
+
+    if (!name || !mobile || !product) {
+        errEl.textContent = "Please verify and populate all mandatory execution fields (*).";
+        errEl.style.display = "block";
+        return;
+    }
+
+    if (!/^\d{10}$/.test(mobile)) {
+        errEl.textContent = "Please supply a valid 10-digit communication routing track.";
+        errEl.style.display = "block";
+        return;
+    }
+
+    if (!terms) {
+        errEl.textContent = "Profile initialization requires authorization compliance acceptance.";
+        errEl.style.display = "block";
+        return;
+    }
+
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.textContent = "Processing Profile...";
+
+    // Simulating secure submission dispatch
+    setTimeout(() => {
+        document.getElementById('formBody').style.display = 'none';
+        document.getElementById('lead-id').textContent = 'WCF-' + Math.floor(100000 + Math.random() * 900000);
+        document.getElementById('successMsg').style.display = 'block';
+    }, 1200);
+}
+
+/* HIGH PERFORMANCE INTERSECTION OBSERVING SYSTEM */
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+}, { threshold: 0.08 });
+
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+/* High-Performance Intersection Observer for Scroll Animations */
+const scrollRevealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            // Optional: unobserve if you only want the animation to happen once
+            // scrollRevealObserver.unobserve(entry.target);
+        }
+    });
+}, { 
+    threshold: 0.1,      // Starts the transition when 10% of the element is visible
+    rootMargin: "0px 0px -50px 0px" // Triggers slightly before crossing into view for a cleaner appearance
+});
+
+// Automatically apply the observer engine to all your core page sections and individual blocks
+document.querySelectorAll(".section, .section-full, .form-wrap, .card, .stats-banner").forEach(el => {
+    el.classList.add("reveal"); // Injects base transition styles dynamically
+    scrollRevealObserver.observe(el);
+});
+</script>
+</body>
+</html>
